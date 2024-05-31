@@ -2,9 +2,9 @@ const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const AutoImport = require('unplugin-auto-import/webpack')
-const Components = require('unplugin-vue-components/webpack')
-const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
+// const AutoImport = require('unplugin-auto-import/webpack')
+// const Components = require('unplugin-vue-components/webpack')
+// const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 const { loader } = MiniCssExtractPlugin
 module.exports = {
     entry: './src/index.ts',
@@ -39,12 +39,12 @@ module.exports = {
             template: './src/index.html'
         }),
         new VueLoaderPlugin(),
-        AutoImport.default({
-            resolvers: [ElementPlusResolver()],
-          }),
-          Components.default({
-            resolvers: [ElementPlusResolver()],
-          })
+        // AutoImport.default({
+        //     resolvers: [ElementPlusResolver()],
+        //   }),
+        //   Components.default({
+        //     resolvers: [ElementPlusResolver()],
+        //   })
     ],
     resolve: {
         alias: {

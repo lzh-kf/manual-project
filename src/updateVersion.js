@@ -7,7 +7,7 @@ const versionInfo = {
         if(versionInfo.cacheValue) {
             return  versionInfo.cacheValue
         }
-        versionInfo.cacheValue = localStorage.getItem('version')
+        versionInfo.cacheValue = Number(localStorage.getItem('version'))
         return versionInfo.cacheValue
     }
 }
@@ -23,7 +23,8 @@ const managementVersion = () => {
             localStorage.setItem('version', version)
         } else {
             const localVersion = versionInfo.value
-            if(localVersion!=version) {
+            console.log('执行条件',localVersion,version,localVersion!==version)
+            if(localVersion!==version) {
                 ElMessageBox.confirm('发现新版本，是否更新?',
                     {
                       confirmButtonText: '确认',
