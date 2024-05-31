@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --open  --mode=development --config webpack.dev.js",
     "preview": "webpack serve --open  --mode=production --config webpack.preview.js",
-    "build": "webpack --mode=production  --config webpack.prod.js"
+    "build": "webpack --mode=production  --config webpack.prod.js && node generateProjectJson.js"
   },
   "author": "lizhenhui",
   "license": "ISC",
@@ -35,6 +35,7 @@
     "webpack-merge": "^5.10.0"
   },
   "dependencies": {
+    "axios": "^1.7.2",
     "echarts": "^5.5.0",
     "element-plus": "^2.7.3",
     "lodash": "^4.17.21",
