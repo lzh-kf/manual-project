@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --open  --mode=development --config webpack.dev.js",
     "preview": "webpack serve --open  --mode=production --config webpack.preview.js",
-    "build": "webpack --mode=production  --config webpack.prod.js && node generateProjectJson.js"
+    "build": "webpack --mode=production  --config webpack.prod.js && node generateVersionJson.js"
   },
   "author": "lizhenhui",
   "license": "ISC",
@@ -25,6 +25,7 @@
     "sass-loader": "^14.2.1",
     "style-loader": "^4.0.0",
     "template-loader": "^0.2.0",
+    "terser-webpack-plugin": "^5.3.10",
     "ts-loader": "^9.5.1",
     "typescript": "^5.4.5",
     "unplugin-auto-import": "^0.17.6",

@@ -11,12 +11,9 @@
         "esModuleInterop": true,
         "baseUrl": "./",
         "types": [
-            "element-plus/global"
+            "element-plus/global",
         ],
         "paths": {
-            "@": [
-                "src"
-            ],
             "@/*": [
                 "src/*"
             ]
@@ -24,7 +21,9 @@
     },
     "include": [
         "src/**/*",
-        "typings/*"
+        "typings/*",
+        "auto-imports.d.ts",
+        "components.d.ts"
     ],
     "exclude": [
         "node_modules"

@@ -1,57 +1,44 @@
-import axios from 'axios'
-import { ElMessageBox,ElMessage } from 'element-plus'
-let isFirstLoad = true
-const versionInfo = {
-    cacheValue:null,
-    get value(){
-        if(versionInfo.cacheValue) {
-            return  versionInfo.cacheValue
-        }
-        versionInfo.cacheValue = Number(localStorage.getItem('version'))
-        return versionInfo.cacheValue
-    }
-}
+import axios from "axios";
+let isFirstLoad = true;
+let currentVersion;
 const managementVersion = () => {
-    axios('/manual-project/dist/version.json', {
-        headers:{
-            'Cache-Control':'no-cache',
-        }
-    }).then(res=> {
-        const { version } = res.data
-        if(isFirstLoad) {
-            isFirstLoad = false
-            localStorage.setItem('version', version)
-        } else {
-            const localVersion = versionInfo.value
-            console.log('执行条件',localVersion,version,localVersion!==version)
-            if(localVersion!==version) {
-                ElMessageBox.confirm('发现新版本，是否更新?',
-                    {
-                      confirmButtonText: '确认',
-                      cancelButtonText: '取消',
-                      type: '更新版本确认框？',
-                    }
-                  ).then(() => {
-                      ElMessage({
-                        type: 'success',
-                        message: '更新新版本了!!!',
-                        onClose(){
-                            localStorage.setItem('version', version)
-                            location.reload()
-                        }
-                      })
-                    }).catch(() => {
-                      ElMessage({
-                        type: 'info',
-                        message: '你取消了版本更新',
-                      })
-                    })
-            }
-        }
-       })
-}
-if(process.env.NODE_ENV === 'production') {
-    setInterval(()=> {
-        managementVersion()
-    }, 1000 * 10)
+  axios("/manual-project/dist/version.json", {
+    headers: {
+      "Cache-Control": "no-cache",
+    },
+  }).then((res) => {
+    const { version } = res.data;
+    if (isFirstLoad) {
+      isFirstLoad = false;
+      currentVersion = version;
+    } else {
+      if (currentVersion !== version) {
+        ElMessageBox.confirm("发现新版本，是否更新?", {
+          confirmButtonText: "确认",
+          cancelButtonText: "取消",
+          type: "更新版本确认框？",
+        })
+          .then(() => {
+            ElMessage({
+              type: "success",
+              message: "更新新版本了!!!",
+              onClose() {
+                location.reload();
+              },
+            });
+          })
+          .catch(() => {
+            ElMessage({
+              type: "info",
+              message: "你取消了版本更新",
+            });
+          });
+      }
+    }
+  });
+};
+if (process.env.NODE_ENV === "production") {
+  setInterval(() => {
+    managementVersion();
+  }, 1000 * 60 * 30);
 }

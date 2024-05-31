@@ -1,13 +1,13 @@
 <template>
     <div class="login">
         <div class="container">
-            <h4>超级管理系统管理系统（小飞侠v16）</h4>
+            <h4>超级管理系统管理系统（小飞侠v22）</h4>
             <el-form ref="ruleFormRef" :model="formData" :rules="rules" label-width="80px">
                 <el-form-item label="账号" prop="account">
                     <el-input v-model="formData.account" />
                 </el-form-item>
                 <el-form-item label="密码" prop="password">
-                    <el-input v-model="formData.password" />
+                    <el-input type="password" v-model="formData.password" />
                 </el-form-item>
                 <el-form-item>
                     <el-button type="primary" @click="handleLogin()" style="width:100%" :loading="loading">

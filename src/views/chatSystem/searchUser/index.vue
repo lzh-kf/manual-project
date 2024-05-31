@@ -31,7 +31,6 @@
 import { useReactive } from '@/hooks/useState'
 import useQuery from '@/hooks/useQuery'
 import type { Api } from '@/hooks/useQuery'
-import { ElMessage } from 'element-plus'
 const api: Api<{ userId: string }, { date: string }> = () => {
     return new Promise((resolve) => {
         setTimeout(() => {
@@ -70,7 +69,8 @@ const handleSearch = () => {
 const handleApply = () => {
     ElMessage({
         type: 'success',
-        message: '申请成功'
+        message: '申请成功',
+        duration: 10000
     })
 }
 
