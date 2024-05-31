@@ -1,17 +1,19 @@
 import axios from 'axios'
 const managementVersion = () => {
     axios('/manual-project/dist/version.json', {
-        'CacheControl':0,
+        headers:{
+            'CacheControl':'no-cache',
+        }
     }).then(res=> {
         const { version } = res.data
         const localVersion = localStorage.getItem('version')
         if(localVersion) {
             if(localVersion!=version) {
-                if (window.confirm("发现新版本，是否更新?")) {
-                    alert('更新新版本了')
+                if (confirm("发现新版本，是否更新?")) {
                     localStorage.setItem('version', version)
                     setTimeout(()=> {
-                        window.location.reload()
+                    alert('更新新版本了!!!')
+                        location.reload()
                     },3000)
                   } else {
                     alert('你取消了版本更新')
@@ -24,6 +26,7 @@ const managementVersion = () => {
 }
 if(process.env.NODE_ENV === 'production') {
     setInterval(()=> {
+        console.log('我是最新的代码')
         managementVersion()
-    }, 1000 * 20)
+    }, 1000 * 5)
 }
