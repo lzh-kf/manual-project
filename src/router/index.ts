@@ -17,10 +17,6 @@ const router = createRouter({
             component: () => import('@/views/main-content/index.vue'),
             children: [
                 {
-                    path: '/main-content/:afterUser(.*)',
-                    component: import('@/views/found/index.vue')
-                },
-                {
                     path: '',
                     name: 'home',
                     component: () => import('@/views/home/index.vue')
@@ -40,6 +36,10 @@ const router = createRouter({
                     name: 'friendList',
                     component: () => import('@/views/chatSystem/friendList/index.vue')
                 },
+                {
+                    path: '/main-content/:afterUser(.*)',
+                    component: import('@/views/found/index.vue')
+                }
             ]
         }
     ],
