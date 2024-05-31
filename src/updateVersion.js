@@ -8,7 +8,7 @@ const versionInfo = {
             return  versionInfo.cacheValue
         }
         versionInfo.cacheValue = localStorage.getItem('version')
-        return versionInfo
+        return versionInfo.cacheValue
     }
 }
 const managementVersion = () => {
