@@ -6,6 +6,7 @@ const managementVersion = () => {
         if(localVersion) {
             if(localVersion!=version) {
                 if (window.confirm("发现新版本，是否更新?")) {
+                    localStorage.setItem('version', version)
                     window.location.reload()
                   } else {
                     alert('你取消了版本更新')
