@@ -4,7 +4,7 @@ const managementVersion = () => {
         const { version } = res.data
         const localVersion = localStorage.getItem('version')
         if(localVersion) {
-            if(localVersion==version) {
+            if(localVersion!=version) {
                 if (window.confirm("发现新版本，是否更新?")) {
                     window.location.reload()
                   } else {
