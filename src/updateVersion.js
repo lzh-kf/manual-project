@@ -1,8 +1,7 @@
 import axios from 'axios'
 const managementVersion = () => {
     axios('/manual-project/dist/version.json').then(res=> {
-        console.log('res',res)
-        const { version } = res
+        const { version } = res.data
         const localVersion = localStorage.getItem('version')
         if(localVersion) {
             if(localVersion==version) {
@@ -18,8 +17,7 @@ const managementVersion = () => {
        })
 }
 if(process.env.NODE_ENV === 'production') {
-    console.log('计时器开始')
     setInterval(()=> {
         managementVersion()
-    },1000*10)
+    }, 1000 * 20)
 }
