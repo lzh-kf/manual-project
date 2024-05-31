@@ -2,7 +2,7 @@ import axios from 'axios'
 const managementVersion = () => {
     axios('/manual-project/dist/version.json', {
         headers:{
-            'CacheControl':'no-cache',
+            'Cache-Control':'no-cache',
         }
     }).then(res=> {
         const { version } = res.data
