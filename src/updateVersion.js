@@ -17,8 +17,7 @@ const managementVersion = () => {
         } 
        })
 }
-console.log(process.env.NODE_ENV === 'production')
-if(process.env.NODE_ENV !== 'production') {
+if(process.env.NODE_ENV === 'production') {
     console.log('计时器开始')
     setInterval(()=> {
         managementVersion()
