@@ -1,0 +1,47 @@
+{
+  "name": "manual-project",
+  "version": "1.0.0",
+  "description": "这是一个手动挡的前端项目（全是博主自己组合）",
+  "private": false,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack serve --open  --mode=development --config webpack.dev.js",
+    "preview": "webpack serve --open  --mode=production --config webpack.preview.js",
+    "build": "webpack --mode=production  --config webpack.prod.js"
+  },
+  "author": "lizhenhui",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.24.6",
+    "@babel/preset-env": "^7.24.6",
+    "@babel/preset-typescript": "^7.24.6",
+    "@eslint/js": "^9.3.0",
+    "babel-loader": "^9.1.3",
+    "css-loader": "^7.1.2",
+    "globals": "^15.3.0",
+    "html-webpack-plugin": "^5.6.0",
+    "mini-css-extract-plugin": "^2.9.0",
+    "sass": "^1.77.2",
+    "sass-loader": "^14.2.1",
+    "style-loader": "^4.0.0",
+    "template-loader": "^0.2.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.4.5",
+    "unplugin-auto-import": "^0.17.6",
+    "unplugin-vue-components": "^0.27.0",
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4",
+    "webpack-merge": "^5.10.0"
+  },
+  "dependencies": {
+    "echarts": "^5.5.0",
+    "element-plus": "^2.7.3",
+    "lodash": "^4.17.21",
+    "normalize.css": "^8.0.1",
+    "pinia": "^2.1.7",
+    "vue": "^3.4.27",
+    "vue-loader": "^17.4.2",
+    "vue-router": "^4.3.2"
+  }
+}
