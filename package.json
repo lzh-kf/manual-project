@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --open  --config webpack.dev.js",
-    "preview": "npm run build && node server.js",
+    "preview": "webpack  --config webpack.preview.js && node generateVersionJson.js && node server.js",
     "build": "webpack  --config webpack.prod.js && node generateVersionJson.js"
   },
   "author": "lizhenhui",

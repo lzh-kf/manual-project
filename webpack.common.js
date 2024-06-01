@@ -11,7 +11,7 @@ module.exports = (env) => {
   return {
     entry: "./src/index.ts",
     output: {
-      filename: `js/[name].[contenthash].js`,
+      filename: `js/[name].[chunkhash].js`,
       path: path.resolve(__dirname, "docs"),
       clean: true,
       pathinfo: false

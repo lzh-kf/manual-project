@@ -1,5 +1,6 @@
 <template>
     <div class="found">
+        <h4>页面丢失了</h4>
         <img src="../../assets/img/404.png" />
 
     </div>
@@ -16,5 +17,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 </style>
