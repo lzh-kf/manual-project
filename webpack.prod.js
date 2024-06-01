@@ -5,9 +5,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const TerserPlugin = require('terser-webpack-plugin')
 module.exports = merge(common({ mode: "production" }), {
   mode: "production",
-  output: {
-    publicPath: '/manual-project/',
-  },
   optimization: {
     moduleIds: 'deterministic',
     splitChunks: {

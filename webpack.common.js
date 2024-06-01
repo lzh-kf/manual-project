@@ -5,7 +5,6 @@ const HtmlWebpackPlugin = require("html-webpack-plugin")
 const AutoImport = require("unplugin-auto-import/webpack")
 const Components = require("unplugin-vue-components/webpack")
 const { ElementPlusResolver } = require("unplugin-vue-components/resolvers")
-const CopyPlugin = require('copy-webpack-plugin')
 const { loader } = MiniCssExtractPlugin
 module.exports = (env) => {
   return {
@@ -17,15 +16,9 @@ module.exports = (env) => {
       pathinfo: false
     },
     plugins: [
-      new CopyPlugin({
-        patterns: [
-          {
-            from: path.resolve(__dirname, "public"), to: path.resolve(__dirname, "docs")
-          }
-        ]
-      }),
       new HtmlWebpackPlugin({
         template: "./src/index.html",
+        favicon: './src/assets/favicon.ico'
       }),
       new VueLoaderPlugin(),
       AutoImport.default({
