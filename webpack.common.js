@@ -5,48 +5,24 @@ const HtmlWebpackPlugin = require("html-webpack-plugin")
 const AutoImport = require("unplugin-auto-import/webpack")
 const Components = require("unplugin-vue-components/webpack")
 const { ElementPlusResolver } = require("unplugin-vue-components/resolvers")
-const TerserPlugin = require('terser-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 const { loader } = MiniCssExtractPlugin
 module.exports = (env) => {
   return {
     entry: "./src/index.ts",
     output: {
-      filename: `js/[name].[hash].js`,
+      filename: `js/[name].[contenthash].js`,
       path: path.resolve(__dirname, "docs"),
       clean: true,
-    },
-    optimization: {
-      runtimeChunk: "single",
-      splitChunks: {
-        // 分割第三方包
-        cacheGroups: {
-          vendors:
-            env.mode === "development"
-              ? {}
-              : {
-                chunks: "all",
-                test: /[\\/]node_modules[\\/]/,
-                name (module) {
-                  if (module.context.includes("node_modules")) {
-                    const packageName = module.context.match(
-                      /[\\/]node_modules[\\/](.*?)([\\/]|$)/
-                    )[1]
-                    return `${packageName.replace("@", "")}`
-                  }
-                },
-              },
-        },
-      },
-      minimize: true,
-      minimizer: [
-        new TerserPlugin({
-          extractComments: false
-        })
-      ]
+      pathinfo: false
     },
     plugins: [
-      new MiniCssExtractPlugin({
-        filename: "css/[name].[hash].css",
+      new CopyPlugin({
+        patterns: [
+          {
+            from: path.resolve(__dirname, "public"), to: path.resolve(__dirname, "docs")
+          }
+        ]
       }),
       new HtmlWebpackPlugin({
         template: "./src/index.html",
@@ -69,6 +45,7 @@ module.exports = (env) => {
       rules: [
         {
           test: /\.vue$/i,
+          include: path.resolve(__dirname, 'src'),
           use: ["vue-loader"],
         },
         {
@@ -90,7 +67,7 @@ module.exports = (env) => {
         {
           test: /\.(ts|tsx)?$/,
           exclude: /(node_modules)/,
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
             presets: [
               "@babel/preset-env",

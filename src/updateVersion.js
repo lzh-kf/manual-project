@@ -1,16 +1,16 @@
-import axios from "axios";
-let isFirstLoad = true;
-let currentVersion;
+import axios from "axios"
+let isFirstLoad = true
+let currentVersion
 const managementVersion = () => {
-  axios("/manual-project/dist/version.json", {
+  axios("/version.json", {
     headers: {
       "Cache-Control": "no-cache",
     },
   }).then((res) => {
-    const { version } = res.data;
+    const { version } = res.data
     if (isFirstLoad) {
-      isFirstLoad = false;
-      currentVersion = version;
+      isFirstLoad = false
+      currentVersion = version
     } else {
       if (currentVersion !== version) {
         ElMessageBox.confirm("发现新版本，是否更新?", {
@@ -22,23 +22,23 @@ const managementVersion = () => {
             ElMessage({
               type: "success",
               message: "更新新版本了!!!",
-              onClose() {
-                location.reload();
+              onClose () {
+                location.reload()
               },
-            });
+            })
           })
           .catch(() => {
             ElMessage({
               type: "info",
               message: "你取消了版本更新",
-            });
-          });
+            })
+          })
       }
     }
-  });
-};
+  })
+}
 if (process.env.NODE_ENV === "production") {
   setInterval(() => {
-    managementVersion();
-  }, 1000 * 60 * 30);
+    managementVersion()
+  }, 1000 * 1 * 1)
 }

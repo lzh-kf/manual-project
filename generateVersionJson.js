@@ -6,7 +6,7 @@ const content = `{
     "version":${++version}
 }`
 fs.writeFile(
-  path.resolve(__dirname, "dist/version.json"),
+  path.resolve(__dirname, "docs/version.json"),
   content,
   {},
   (err) => {
@@ -22,6 +22,8 @@ fs.writeFile(
           }
         }
       )
+    } else {
+      console.log('文件写入失败', err)
     }
   }
 )

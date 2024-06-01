@@ -3,10 +3,14 @@ const webpack = require("webpack")
 const common = require("./webpack.common.js")
 module.exports = merge(common({ mode: "development" }), {
   mode: "development",
-  devtool: "inline-source-map",
+  devtool: 'eval-cheap-module-source-map',
+  optimization: {
+    runtimeChunk: true
+  },
   devServer: {
     static: "./docs",
     historyApiFallback: true,
+    hot: true,
     client: {
       overlay: false,
     },
