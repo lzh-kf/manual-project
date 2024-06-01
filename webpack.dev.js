@@ -5,7 +5,7 @@ module.exports = merge(common({ mode: "development" }), {
   mode: "development",
   devtool: "inline-source-map",
   devServer: {
-    static: "./dist",
+    static: "./docs",
     historyApiFallback: true,
     client: {
       overlay: false,

@@ -12,7 +12,7 @@ module.exports = (env) => {
     entry: "./src/index.ts",
     output: {
       filename: `js/[name].[hash].js`,
-      path: path.resolve(__dirname, "dist"),
+      path: path.resolve(__dirname, "docs"),
       clean: true,
     },
     optimization: {
