@@ -2,7 +2,7 @@ import axios from "axios"
 let isFirstLoad = true
 let currentVersion
 const managementVersion = () => {
-  axios("/version.json", {
+  axios("/manual-project/version.json", {
     headers: {
       "Cache-Control": "no-cache",
     },
@@ -40,5 +40,5 @@ const managementVersion = () => {
 if (process.env.NODE_ENV === "production") {
   setInterval(() => {
     managementVersion()
-  }, 1000 * 1 * 1)
+  }, 1000 * 60 * 30)
 }
