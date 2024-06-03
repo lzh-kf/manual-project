@@ -37,9 +37,9 @@ module.exports = merge(common({ mode: "production" }), {
     }),
     new webpack.DefinePlugin({
       "process.env": {
-        NODE_ENV: JSON.stringify("production"),
-        serverUrl: JSON.stringify("pro"),
-        base: JSON.stringify("/base-pro"),
+        NODE_ENV: JSON.stringify("preview"),
+        serverUrl: JSON.stringify("pre"),
+        base: JSON.stringify("/base-pre"),
       },
     }),
   ],

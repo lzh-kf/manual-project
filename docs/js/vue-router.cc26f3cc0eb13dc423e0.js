@@ -1,4 +1,4 @@
-"use strict";(self.webpackChunkmanual_project=self.webpackChunkmanual_project||[]).push([[873],{5220:(e,t,n)=>{n.d(t,{Bt:()=>X,aE:()=>rt,lq:()=>at,rd:()=>ot});var r=n(641),o=n(953),a=n(1759);
+"use strict";(self.webpackChunkmanual_project=self.webpackChunkmanual_project||[]).push([[873],{5220:function(e,t,n){n.d(t,{Bt:function(){return X},aE:function(){return rt},lq:function(){return at},rd:function(){return ot}});var r=n(641),o=n(953),a=n(1759);
 /*!
   * vue-router v4.3.2
   * (c) 2024 Eduardo San Martin Morote

@@ -26,7 +26,7 @@ module.exports = (env) => {
       }),
       Components.default({
         resolvers: [ElementPlusResolver()],
-      }),
+      })
     ],
     resolve: {
       alias: {
@@ -45,7 +45,11 @@ module.exports = (env) => {
           test: /\.s[ac]ss$/i,
           use: [
             env.mode === "development" ? "style-loader" : loader,
+            // {
+            //   loader: path.resolve(__dirname, "pxToVw.js"),
+            // },
             "css-loader",
+            'postcss-loader',
             "sass-loader",
           ],
         },
@@ -53,7 +57,11 @@ module.exports = (env) => {
           test: /\.css$/i,
           use: [
             env.mode === "development" ? "style-loader" : loader,
+            // {
+            //   loader: path.resolve(__dirname, "pxToVw.js"),
+            // },
             "css-loader",
+            'postcss-loader',
             "sass-loader",
           ],
         },

@@ -57,7 +57,7 @@ const handleLogin = async () => {
                     path: '/main-content'
                 })
                 loading.value = false
-            }, 1500)
+            }, 500)
         }
     })
 }
@@ -69,6 +69,7 @@ const handleLogin = async () => {
     display: flex;
     align-items: center;
     justify-content: center;
+    transform: rotate(0deg);
 
     .container {
         width: 350px;

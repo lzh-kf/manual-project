@@ -2,7 +2,8 @@ import axios from "axios"
 let isFirstLoad = true
 let currentVersion
 const managementVersion = () => {
-  axios("/manual-project/version.json", {
+  const url = process.env.NODE_ENV === 'preview' ? '/version.json' : '/manual-project/version.json'
+  axios(url, {
     headers: {
       "Cache-Control": "no-cache",
     },
@@ -37,7 +38,7 @@ const managementVersion = () => {
     }
   })
 }
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV !== "development") {
   setInterval(() => {
     managementVersion()
   }, 1000 * 60 * 30)
