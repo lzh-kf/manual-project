@@ -7,6 +7,11 @@ const router = createRouter({
             redirect: '/login'
         },
         {
+            path: '/drag',
+            name: 'drag',
+            component: () => import('@/views/drag/index.vue')
+        },
+        {
             path: '/login',
             name: 'login',
             component: () => import('@/views/login/index.vue')
