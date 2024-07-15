@@ -8,4 +8,5 @@
 - 本地预览环境
 4. 分包构建时，不同的资源放入不同的文件夹。
 5. 第三方包打包时，分割成独立的文件。
+<br/>
 [部署地址](https://lzh-kf.github.io/manual-project/#/login)
