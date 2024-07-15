@@ -1,0 +1,31 @@
+{
+    "compilerOptions": {
+        "outDir": "./docs/",
+        "noImplicitAny": true,
+        "module": "ESNext",
+        "target": "ES2020",
+        "jsx": "react",
+        "allowJs": true,
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "baseUrl": "./",
+        "types": [
+            "element-plus/global",
+        ],
+        "paths": {
+            "@/*": [
+                "src/*"
+            ]
+        }
+    },
+    "include": [
+        "src/**/*",
+        "typings/*",
+        "auto-imports.d.ts",
+        "components.d.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
