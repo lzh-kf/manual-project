@@ -1,4 +1,5 @@
-> 一个从0开发搭建的前端项目（vue版本），基于[webpack](https://webpack.js.org/)。
+> 一个从0开发搭建的前端项目（vue版本），基于[webpack](https://webpack.js.org/)。,不用太关注项目的内容是什么，
+东西我随便写的，主要是为了让我们熟悉，我们在使用脚手架（vite、webpack）搭建项目时，它们在做了什么，这个才是关键。
 ### 支持的功能
 1. 解析和加载sass、css、js、json、ts、tsx、vue、图片、字体等文件。
 2. 本地开发文件热更新。
